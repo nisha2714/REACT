@@ -43,6 +43,21 @@ function App() {
     setCount(0);
   };
 
+  // Sample array of records
+  const records = [
+    { id: 1, name: 'Nisha', email: 'nisha@example.com' },
+    { id: 2, name: 'John', email: 'john@example.com' },
+    { id: 3, name: 'Doe', email: 'doe@example.com' }
+  ];
+
+  // JSX to display in Task 1
+  const simpleJSX = (
+    <div>
+      <h3>Hello, React!</h3>
+      <p>This is a simple JSX block displayed below Task 1-3.</p>
+    </div>
+  );
+
   return (
     <div className="App">
       <h1>React Tasks</h1>
@@ -50,6 +65,7 @@ function App() {
       {/* Task 1: Display Simple JSX */}
       <div className="task-boundary display-jsx">
         <h2>Task 1-3 !</h2>
+        {simpleJSX} {/* Display the simple JSX */}
       </div>
 
       {/* Task 2: Counter */}
@@ -124,8 +140,21 @@ function App() {
         <button onClick={calculateSum}>Calculate Sum</button>
         <p>Sum: {sum}</p>
       </div>
+
+      {/* Display array of records */}
+      <div className="task-boundary display-records">
+        <h3>List of Records</h3>
+        <ul>
+          {records.map((record) => (
+            <li key={record.id}>
+              <strong>{record.name}</strong> - {record.email}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
 
 export default App;
+
